@@ -25,4 +25,11 @@ public class TestProxy {
         IStudent people = (IStudent) ac.getBean("studentImpl");
         people.addStudent("zhangsna");
     }
+
+    @Test
+    public void testRemove() {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
+        IStudent people = (IStudent) ac.getBean("studentImpl");
+        people.removeStudent("zhangsna");
+    }
 }

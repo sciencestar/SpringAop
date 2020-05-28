@@ -16,4 +16,9 @@ public class StudentImpl implements IStudent {
     public void addStudent(String name) {
         System.out.println("添加学生:"+name);
     }
+
+    @Override
+    public void removeStudent(String name) {
+        System.out.println("删除学生:"+name);
+    }
 }
