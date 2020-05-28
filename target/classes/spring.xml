@@ -10,11 +10,12 @@
 
     <bean id="studentImpl" class="service.impl.StudentImpl"></bean>
     <bean id="studentAcpect" class="aspect.StudentServiceAspect"></bean>
+    <bean id="logAnnotationAspect" class="aspect.LogAnnotationAspect"></bean>
 
     <aop:config>
         <aop:aspect id="studentAcpect" ref="studentAcpect">
             <!--定义一个切点-->
-            <aop:pointcut id="b" expression="execution(* aspect.*.*(..))"></aop:pointcut>
+            <aop:pointcut id="b" expression="execution(* service.impl.*.*(..))"></aop:pointcut>
             <!--定义前置通知-->
             <aop:before method="before" pointcut-ref="b"></aop:before>
             <!--后置通知-->

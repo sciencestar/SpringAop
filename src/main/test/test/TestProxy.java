@@ -13,12 +13,16 @@ import service.IStudent;
  * @Version V1.0
  **/
 public class TestProxy {
+    public static void main(String[] args) {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
+        IStudent people = (IStudent) ac.getBean("studentImpl");
+        people.addStudent("zhangsna");
+    }
 
     @Test
-    public void testPro(){
+    public void testPro() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
-
-        IStudent people =(IStudent) ac.getBean("studentImpl");
+        IStudent people = (IStudent) ac.getBean("studentImpl");
         people.addStudent("zhangsna");
     }
 }
