@@ -17,6 +17,7 @@ public class LogAnnotationAspect {
     //定义切入点，提供一个方法，这个方法的名字就是切入点的id
     @Pointcut("execution(* service.impl.*.*(..))")  //关联核心业务函数
     private void allMethod() {
+        System.out.println("日志系统开始启动!");
     }
 
     //针对指定的切入点表达式选择的切入点应用前置通知
@@ -36,7 +37,6 @@ public class LogAnnotationAspect {
     }
 
     //应用最终通知
-
     @After("allMethod()")
     public void after(JoinPoint call) {
         String className = call.getTarget().getClass().getName();
@@ -45,9 +45,7 @@ public class LogAnnotationAspect {
     }
 
     //应用异常抛出后通知
-
     @AfterThrowing("allMethod()")
-
     public void afterThrowing(JoinPoint call) {
         String className = call.getTarget().getClass().getName();
         String methodName = call.getSignature().getName();
